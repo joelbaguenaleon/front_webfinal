@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    background: #c9a66b;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+}
+
+h1 {
+    background: #5a2e0f;
+    color: white;
+    margin: 0;
+    padding: 18px;
+    border-bottom: 4px solid #2b1608;
+}
+
+select,
+button {
+    padding: 5px 8px;
+    margin: 8px 3px;
+    border: 1px solid #5a2e0f;
+    background: #f7efd8;
+    color: #222;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#stats {
+    background: #fff8e6;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #5a2e0f;
+}
+
+.header-guia {
+    background-color: #5a2500;
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-guia h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.btn-volver {
+    background-color: #f4b400;
+
+    color: black;
+    text-decoration: none;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #ffd54f;
+
+    transform: translateX(-4px);
+}
+
+.contenido-guia {
+    background-color: #ece6d8;
+
+    padding: 30px;
+
+    min-height: 100vh;
+
+    font-size: 20px;
+}
+
+.stat-tooltip {
+    position: relative;
+    cursor: help;
+
+    width: fit-content;
+}
+
+.tooltip-text {
+    visibility: hidden;
+
+    position: absolute;
+
+    background-color: #222;
+    color: white;
+
+    padding: 10px;
+    border-radius: 8px;
+
+    width: 260px;
+
+    top: -10px;
+    left: 110%;
+
+    z-index: 100;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.stat-tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+.chat-box {
+    background: #fff8e6;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #5a2e0f;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.mensaje {
+    max-width: 70%;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #5a2e0f;
+    border-radius: 8px;
+    font-size: 16px;
+    clear: both;
+}
+
+.user {
+    float: right;
+    background: #f7efd8;
+    text-align: right;
+}
+
+.bot {
+    float: left;
+    background: #ead9b8;
+}
+
+.bot pre {
+    white-space: pre-wrap;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 6px 0 0 0;
+}
+
+.chat-input {
+    margin: 20px;
+}
+
+.chat-input input {
+    width: 75%;
+    padding: 8px;
+    border: 1px solid #5a2e0f;
+    background: #f7efd8;
+    font-size: 16px;
+}
+
+.chat-input button {
+    padding: 8px 14px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px;
+}
+
+.home-card {
+    background: #fff8e6;
+    border: 1px solid #5a2e0f;
+    padding: 20px;
+}
+
+.standing-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c9a66b;
+    padding: 6px 0;
+}
+
+.game-card {
+    background: #f7efd8;
+    border: 1px solid #5a2e0f;
+    padding: 12px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.home-card {
+    background: #e9d2a4;
+    padding: 15px;
+    border: 2px solid #6b350f;
+    border-radius: 8px;
+}
+
+.bracket-img {
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.bracket-img:hover {
+    transform: scale(1.02);
+}
