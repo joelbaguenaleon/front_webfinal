@@ -39,5 +39,8 @@ return [
         'key' => env('BALLDONTLIE_API_KEY'),
     ],
 
+    'fastapi' => [
+        'url' => env('FASTAPI_URL'),
+    ]
 ];
 

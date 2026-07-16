@@ -18,9 +18,12 @@ class ChatbotController extends Controller
             'texto' => 'required|string'
         ]);
 
-        $response = Http::post('http://127.0.0.1:8001/api/chatbot/preguntar', [
-            'texto' => $request->texto
-        ]);
+        $response = Http::post(
+            config('services.fastapi.url') . '/api/chatbot/preguntar',
+            [
+                'texto' => $request->texto
+            ]
+        );
 
         return response()->json($response->json());
     }

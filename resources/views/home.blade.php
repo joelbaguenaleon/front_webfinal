@@ -16,7 +16,7 @@
 <div class="home-grid">
     <section class="home-card">
         <h2>Partidos NBA</h2>
-        <h4>Se pueden consultar todos los partidos de cualquier temporada.</h4>
+        <h4>Se pueden consultar todos los partidos de la NBA.</h4>
 
         <form method="GET" action="/">
             <input type="date" name="fecha" value="{{ $fecha }}">
