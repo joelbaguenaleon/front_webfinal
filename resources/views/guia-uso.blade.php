@@ -12,8 +12,16 @@
 
     <div class="header-guia">
 
-        <a href="{{ url()->previous() }}" class="btn-volver">
-            ← Volver
+        <a href=class="btn-volver">
+            @if (request('from') === 'playoffs')
+                <a href="{{ route('playoffs') }}" class="btn-volver">
+                    ← Volver
+                </a>
+            @else
+                <a href="{{ route('regular-season') }}" class="btn-volver">
+                    ← Volver
+                </a>
+            @endif
         </a>
 
         <h1>Guía de Uso</h1>

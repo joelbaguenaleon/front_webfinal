@@ -17,8 +17,7 @@ Route::get('/playoffs', function () {
     $teams = $response->json();
 
     return view('playoffs', compact('teams'));
-});
-
+})->name('playoffs');
 Route::get('/regular-season', function () {
 
     $response = Http::get(config('services.fastapi.url') . '/api/stats/teams', [
@@ -29,7 +28,7 @@ Route::get('/regular-season', function () {
     $teams = $response->json();
 
     return view('regular-season', compact('teams'));
-});
+})->name('regular-season');
 
 Route::get('/players/{team}/{seasonType}', function ($team, $seasonType) {
 
