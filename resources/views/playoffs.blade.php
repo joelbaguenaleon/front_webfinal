@@ -17,7 +17,7 @@
     </div>
 
     <div class="top-bar">
-        <a href="{{ route('guia.uso') }}" class="btn-guia">
+        <a href="{{ route('guia.uso'), ['from' => 'playoffs'] }}" class="btn-guia">
             📘 Guía de uso
         </a>
     </div>
