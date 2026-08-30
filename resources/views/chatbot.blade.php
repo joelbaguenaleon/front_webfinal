@@ -29,39 +29,62 @@
     });
 
     async function preguntar() {
-        const chatBox = document.getElementById('chatBox');
+        const chatBox = document.getElementById("chatBox");
         const texto = input.value.trim();
 
         if (!texto) return;
 
         chatBox.innerHTML += `
-        <div class="mensaje user">
-            <strong>Tú:</strong><br>
-            ${texto}
-        </div>
-    `;
+            <div class="mensaje user">
+                <strong>Tú:</strong><br>
+                ${texto}
+            </div>
+        `;
 
         input.value = "";
 
-        const response = await fetch("{{ route('chatbot.preguntar') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            },
-            body: JSON.stringify({
-                texto
-            })
-        });
+        try {
+            const response = await fetch("/chatbot/preguntar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    texto: texto
+                })
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        chatBox.innerHTML += `
-        <div class="mensaje bot">
-            <strong>ChatBotNBA:</strong>
-            <pre>${data.respuesta}</pre>
-        </div>
-    `;
+            console.log("Respuesta Laravel:", data);
+
+            if (!response.ok) {
+                throw new Error(
+                    data.message ??
+                    data.respuesta ??
+                    `Error ${response.status}`
+                );
+            }
+
+            chatBox.innerHTML += `
+                <div class="mensaje bot">
+                    <strong>ChatBotNBA:</strong>
+                    <p>${data.respuesta}</p>
+                </div>
+            `;
+
+        } catch (error) {
+            console.error("Error chatbot:", error);
+
+            chatBox.innerHTML += `
+                <div class="mensaje bot">
+                    <strong>Error:</strong>
+                    <p>No se pudo obtener respuesta del chatbot.</p>
+                </div>
+            `;
+        }
 
         chatBox.scrollTop = chatBox.scrollHeight;
     }
