@@ -169,6 +169,10 @@ button {
     cursor: pointer;
 }
 
+.mensaje-bienvenida {
+    max-width: 600px;
+}
+
 .home-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

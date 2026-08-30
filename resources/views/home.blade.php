@@ -12,8 +12,8 @@
     <h1>NBAguena</h1>
     <div class="menu">
         <a href="/"><button>Home</button></a>
-        <a href="/regular-season"><button>Estadídticas jugadores temporada regular 2026</button></a>
-        <a href="/playoffs"><button>Estadídticas jugadores playoffs 2026</button></a>
+        <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2026</button></a>
+        <a href="/playoffs"><button>Estadísticas jugadores playoffs 2026</button></a>
         <a href="/chatbot"><button>ChatBotNBA</button></a>
     </div>
     <h2>Una web diseñada para consultar información actual de la NBA.</h2>

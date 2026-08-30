@@ -1,12 +1,20 @@
-<title>NBAguena</title>
-<link rel="stylesheet" href="{{ asset('style.css') }}">
+<!DOCTYPE html>
+<html lang="es">
 
-<h1>ChatBotNBA</h1>
+<title>NBAguena</title>
+
+<head>
+    <h1>ChatBotNBA</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css?v=40">
+
+</head>
 
 <div class="menu">
     <a href="/"><button>Home</button></a>
-    <a href="/regular-season"><button>Estadídticas jugadores temporada regular 2026</button></a>
-    <a href="/playoffs"><button>Estadídticas jugadores playoffs 2026</button></a>
+    <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2026</button></a>
+    <a href="/playoffs"><button>Estadísticas jugadores playoffs 2026</button></a>
     <a href="/chatbot"><button>ChatBotNBA</button></a>
 </div>
 
@@ -15,8 +23,7 @@
     <div class="mensaje bot">
         <strong>ChatBotNBA:</strong>
         <p>
-            Hola,soy ChatBotNBA.<br><br>
-            Puedes preguntarme sobre equipos, jugadores, partidos,
+            Hola,soy ChatBotNBA. Puedes preguntarme sobre equipos, jugadores, partidos,
             clasificaciones o estadísticas de la NBA.
         </p>
     </div>
