@@ -11,10 +11,19 @@
 </div>
 
 
-<div id="chatBox" class="chat-box"></div>
+<div id="chatBox" class="chat-box">
+    <div class="mensaje bot">
+        <strong>ChatBotNBA:</strong>
+        <p>
+            Hola,soy ChatBotNBA.<br><br>
+            Puedes preguntarme sobre equipos, jugadores, partidos,
+            clasificaciones o estadísticas de la NBA.
+        </p>
+    </div>
+</div>
 
-<div class="chat-input">
-    <input id="mensaje" type="text" placeholder="Pregunta algo...">
+<div class="chat-input-area">
+    <input type="text" id="mensaje" placeholder="Pregunta algo...">
 
     <button onclick="preguntar()">Enviar</button>
 </div>
