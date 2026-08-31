@@ -4,6 +4,7 @@
 <head>
     <title>NBAguena</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
 </head>
 
 <body>
