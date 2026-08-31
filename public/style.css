@@ -184,16 +184,6 @@ button {
     gap: 12px;
 }
 
-.btn-info-chat {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    font-size: 22px;
-    background: #e5e7eb;
-}
-
 .info-chat-overlay {
     position: absolute;
     inset: 0;
@@ -280,4 +270,22 @@ button {
 
 .bracket-img:hover {
     transform: scale(1.02);
+}
+
+.btn-info-chat {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #333;
+    border-radius: 50%;
+
+    background: #e5e7eb;
+    color: #111;
+
+    font-size: 22px;
+    cursor: pointer;
 }
