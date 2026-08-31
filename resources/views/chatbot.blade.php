@@ -11,178 +11,194 @@
 
 </head>
 
-<div class="menu">
-    <a href="/"><button>Home</button></a>
-    <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2026</button></a>
-    <a href="/playoffs"><button>Estadísticas jugadores playoffs 2026</button></a>
-    <a href="/chatbot"><button>ChatBotNBA</button></a>
-</div>
+<body>
+    <div class="menu">
+        <a href="/"><button>Home</button></a>
+        <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2026</button></a>
+        <a href="/playoffs"><button>Estadísticas jugadores playoffs 2026</button></a>
+        <a href="/chatbot"><button>ChatBotNBA</button></a>
+    </div>
 
-<div class="chat-header">
-
-    <button type="button" id="infoChatBtn" class="btn-info-chat" aria-label="Información de uso del chatbot">
-        ⓘ
-    </button>
-</div>
-
-<div id="infoChatModal" class="info-chat-overlay" hidden>
-
-    <div class="info-chat-modal">
-
-        <button type="button" id="cerrarInfoChat" class="cerrar-info-chat" aria-label="Cerrar">
-            ×
+    <div class="chat-header">
+        <h4>Información de uso</h4>
+        <button type="button" id="infoChatBtn" class="btn-info-chat" aria-label="Información de uso del chatbot">
+            ⓘ
         </button>
+    </div>
 
-        <h2>🏀 ¿Cómo usar ChatBotNBA?</h2>
+    <div id="infoChatModal" class="info-chat-overlay" hidden>
 
-        <p>
-            Puedes preguntarme sobre información y estadísticas de la NBA.
-        </p>
+        <div class="info-chat-modal">
 
-        <h3>Preguntas que puede contestar el chat:</h3>
+            <button type="button" id="cerrarInfoChat" class="cerrar-info-chat" aria-label="Cerrar">
+                ×
+            </button>
 
-        <ul>
-            <li>Partidos de hoy</li>
-            <li>Últimos partidos de Boston</li>
-            <li>Clasificación NBA</li>
-            <li>Estadísticas de Lebron James</li>
-            <li>Información Lebron James</li>
-            <li>Jugadores de los Lakers</li>
-        </ul>
+            <h2>🏀 ¿Cómo usar ChatBotNBA?</h2>
 
-        <p>
-            Intenta escribir nombres completos o abreviaturas reconocibles
-            para obtener mejores resultados, así como evitar faltas de ortografía.
-        </p>
+            <p>
+                Puedes preguntarme sobre información y estadísticas de la NBA.
+            </p>
+
+            <h3>Preguntas que puede contestar el chat:</h3>
+
+            <ul>
+                <li>Partidos de hoy</li>
+                <li>Últimos partidos de Boston</li>
+                <li>Clasificación NBA</li>
+                <li>Estadísticas de Lebron James</li>
+                <li>Información Lebron James</li>
+                <li>Jugadores de los Lakers</li>
+            </ul>
+
+            <p>
+                Intenta escribir nombres completos o abreviaturas reconocibles
+                para obtener mejores resultados, así como evitar faltas de ortografía.
+            </p>
+
+        </div>
 
     </div>
 
-</div>
-
-<div id="chatBox" class="chat-box">
-    <div class="mensaje bot">
-        <strong>ChatBotNBA:</strong>
-        <p>
-            Hola soy ChatBotNBA. Puedes preguntarme sobre equipos, jugadores, partidos,
-            clasificaciones o estadísticas de la NBA.
-        </p>
+    <div id="chatBox" class="chat-box">
+        <div class="mensaje bot">
+            <strong>ChatBotNBA:</strong>
+            <p>
+                Hola soy ChatBotNBA. Puedes preguntarme sobre equipos, jugadores, partidos,
+                clasificaciones o estadísticas de la NBA.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="chat-input-area">
-    <input type="text" id="mensaje" placeholder="Pregunta algo...">
+    <div class="chat-input-area">
+        <input type="text" id="mensaje" placeholder="Pregunta algo...">
 
-    <button onclick="preguntar()">Enviar</button>
-</div>
+        <button onclick="preguntar()">Enviar</button>
+    </div>
 
-<script>
-    const input = document.getElementById('mensaje');
+    <script>
+        const input = document.getElementById('mensaje');
 
-    input.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            preguntar();
-        }
-    });
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                preguntar();
+            }
+        });
 
-    async function preguntar() {
-        const chatBox = document.getElementById("chatBox");
-        const texto = input.value.trim();
+        async function preguntar() {
+            const chatBox = document.getElementById("chatBox");
+            const texto = input.value.trim();
 
-        if (!texto) return;
+            if (!texto) return;
 
-        chatBox.innerHTML += `
-            <div class="mensaje user">
-                <strong>Tú:</strong><br>
-                ${texto}
-            </div>
-        `;
+            chatBox.innerHTML += `
+                    <div class="mensaje user">
+                        <strong>Tú:</strong><br>
+                        ${texto}
+                    </div>
+                `;
 
-        input.value = "";
+            input.value = "";
 
-        try {
-            const response = await fetch("/chatbot/preguntar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: JSON.stringify({
-                    texto: texto
-                })
-            });
+            try {
+                const response = await fetch("/chatbot/preguntar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        texto: texto
+                    })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            console.log("Respuesta Laravel:", data);
+                console.log("Respuesta Laravel:", data);
 
-            if (!response.ok) {
-                throw new Error(
-                    data.message ??
-                    data.respuesta ??
-                    `Error ${response.status}`
-                );
+                if (!response.ok) {
+                    throw new Error(
+                        data.message ??
+                        data.respuesta ??
+                        `Error ${response.status}`
+                    );
+                }
+
+                const mensajeBot = document.createElement("div");
+                mensajeBot.classList.add("mensaje", "bot");
+
+                const titulo = document.createElement("strong");
+                titulo.textContent = "ChatBotNBA:";
+
+                const respuestaTexto = document.createElement("div");
+                respuestaTexto.classList.add("respuesta-texto");
+
+                const lineas = String(data.respuesta ?? "")
+                    .replace(/\\n/g, "\n")
+                    .split(/\r?\n/);
+
+                lineas.forEach((linea, index) => {
+                    respuestaTexto.appendChild(
+                        document.createTextNode(linea)
+                    );
+
+                    if (index < lineas.length - 1) {
+                        respuestaTexto.appendChild(
+                            document.createElement("br")
+                        );
+                    }
+                });
+
+                mensajeBot.appendChild(titulo);
+                mensajeBot.appendChild(respuestaTexto);
+
+                chatBox.appendChild(mensajeBot);
+
+            } catch (error) {
+                console.error("Error chatbot:", error);
+
+                chatBox.innerHTML += `
+                        <div class="mensaje bot">
+                            <strong>Error:</strong>
+                            <p>No se pudo obtener respuesta del chatbot.</p>
+                        </div>
+                    `;
             }
 
-            const mensajeBot = document.createElement("div");
-            mensajeBot.classList.add("mensaje", "bot");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
-            const titulo = document.createElement("strong");
-            titulo.textContent = "ChatBotNBA:";
+            const infoBtn = document.getElementById("infoChatBtn");
+            const modal = document.getElementById("infoChatModal");
+            const cerrarBtn = document.getElementById("cerrarInfoChat");
 
-            const respuestaTexto = document.createElement("div");
-            respuestaTexto.classList.add("respuesta-texto");
+            console.log("Botón info:", infoBtn);
+            console.log("Modal info:", modal);
+            console.log("Cerrar info:", cerrarBtn);
 
-            const lineas = String(data.respuesta ?? "")
-                .replace(/\\n/g, "\n")
-                .split(/\r?\n/);
+            if (!infoBtn || !modal || !cerrarBtn) {
+                console.error("No se encontraron los elementos del modal");
+                return;
+            }
 
-            lineas.forEach((linea, index) => {
-                respuestaTexto.appendChild(
-                    document.createTextNode(linea)
-                );
+            infoBtn.addEventListener("click", function() {
+                modal.hidden = false;
+            });
 
-                if (index < lineas.length - 1) {
-                    respuestaTexto.appendChild(
-                        document.createElement("br")
-                    );
+            cerrarBtn.addEventListener("click", function() {
+                modal.hidden = true;
+            });
+
+            modal.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.hidden = true;
                 }
             });
 
-            mensajeBot.appendChild(titulo);
-            mensajeBot.appendChild(respuestaTexto);
-
-            chatBox.appendChild(mensajeBot);
-
-        } catch (error) {
-            console.error("Error chatbot:", error);
-
-            chatBox.innerHTML += `
-                <div class="mensaje bot">
-                    <strong>Error:</strong>
-                    <p>No se pudo obtener respuesta del chatbot.</p>
-                </div>
-            `;
-        }
-
-        chatBox.scrollTop = chatBox.scrollHeight;
-
-        const infoChatBtn = document.getElementById("infoChatBtn");
-        const infoChatModal = document.getElementById("infoChatModal");
-        const cerrarInfoChat = document.getElementById("cerrarInfoChat");
-
-        infoChatBtn.addEventListener("click", () => {
-            infoChatModal.hidden = false;
         });
-
-        cerrarInfoChat.addEventListener("click", () => {
-            infoChatModal.hidden = true;
-        });
-
-        infoChatModal.addEventListener("click", (event) => {
-            if (event.target === infoChatModal) {
-                infoChatModal.hidden = true;
-            }
-        });
-    }
-</script>
+    </script>
+</body>
