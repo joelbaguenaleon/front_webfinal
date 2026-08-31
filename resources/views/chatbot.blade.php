@@ -84,12 +84,20 @@
                 );
             }
 
-            chatBox.innerHTML += `
-                <div class="mensaje bot">
-                    <strong>ChatBotNBA:</strong>
-                    <p>${data.respuesta}</p>
-                </div>
-            `;
+            const mensajeBot = document.createElement("div");
+            mensajeBot.classList.add("mensaje", "bot");
+
+            const titulo = document.createElement("strong");
+            titulo.textContent = "ChatBotNBA:";
+
+            const respuestaTexto = document.createElement("div");
+            respuestaTexto.classList.add("respuesta-texto");
+            respuestaTexto.textContent = data.respuesta;
+
+            mensajeBot.appendChild(titulo);
+            mensajeBot.appendChild(respuestaTexto);
+
+            chatBox.appendChild(mensajeBot);
 
         } catch (error) {
             console.error("Error chatbot:", error);

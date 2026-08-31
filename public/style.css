@@ -146,9 +146,14 @@ button {
 }
 
 .mensaje.bot {
-    margin-right: auto;
     background: #e5e7eb;
     white-space: pre-line;
+}
+
+.respuesta-texto {
+    white-space: pre-line;
+    margin-top: 12px;
+    line-height: 1.5;
 }
 
 .chat-input-area {
