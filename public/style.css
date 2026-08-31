@@ -114,7 +114,7 @@ button {
     visibility: visible;
 }
 
-#diseño chatboot .chat-page {
+.chat-page {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
@@ -178,7 +178,7 @@ button {
     max-width: 600px;
 }
 
-#diseño de ventana in informacionn chatboot .chat-header {
+.chat-header {
     display: flex;
     align-items: center;
     gap: 12px;
