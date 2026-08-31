@@ -92,7 +92,11 @@
 
             const respuestaTexto = document.createElement("div");
             respuestaTexto.classList.add("respuesta-texto");
-            respuestaTexto.textContent = data.respuesta;
+
+            const textoRespuesta = String(data.respuesta ?? "")
+                .replace(/\\n/g, "\n");
+
+            respuestaTexto.textContent = textoRespuesta;
 
             mensajeBot.appendChild(titulo);
             mensajeBot.appendChild(respuestaTexto);
