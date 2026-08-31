@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Guía de Uso</title>
     <link rel="stylesheet" href="/guia.css">
-    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}?v=2">
 </head>
 
 <body>
