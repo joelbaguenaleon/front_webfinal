@@ -151,7 +151,6 @@ button {
 }
 
 .respuesta-texto {
-    white-space: pre-wrap !important;
     margin-top: 12px;
     line-height: 1.5;
 }

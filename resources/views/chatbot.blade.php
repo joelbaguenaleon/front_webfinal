@@ -93,10 +93,21 @@
             const respuestaTexto = document.createElement("div");
             respuestaTexto.classList.add("respuesta-texto");
 
-            const textoRespuesta = String(data.respuesta ?? "")
-                .replace(/\\n/g, "\n");
+            const lineas = String(data.respuesta ?? "")
+                .replace(/\\n/g, "\n")
+                .split(/\r?\n/);
 
-            respuestaTexto.textContent = textoRespuesta;
+            lineas.forEach((linea, index) => {
+                respuestaTexto.appendChild(
+                    document.createTextNode(linea)
+                );
+
+                if (index < lineas.length - 1) {
+                    respuestaTexto.appendChild(
+                        document.createElement("br")
+                    );
+                }
+            });
 
             mensajeBot.appendChild(titulo);
             mensajeBot.appendChild(respuestaTexto);
