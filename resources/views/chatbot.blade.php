@@ -18,8 +18,7 @@
     <a href="/chatbot"><button>ChatBotNBA</button></a>
 </div>
 
-<div class="chat-header"> #boton de inormación de chatbot
-    <h1>ChatBotNBA</h1>
+<div class="chat-header">
 
     <button type="button" id="infoChatBtn" class="btn-info-chat" aria-label="Información de uso del chatbot">
         ⓘ
