@@ -18,6 +18,47 @@
     <a href="/chatbot"><button>ChatBotNBA</button></a>
 </div>
 
+<div class="chat-header"> #boton de inormación de chatbot
+    <h1>ChatBotNBA</h1>
+
+    <button type="button" id="infoChatBtn" class="btn-info-chat" aria-label="Información de uso del chatbot">
+        ⓘ
+    </button>
+</div>
+
+<div id="infoChatModal" class="info-chat-overlay" hidden>
+
+    <div class="info-chat-modal">
+
+        <button type="button" id="cerrarInfoChat" class="cerrar-info-chat" aria-label="Cerrar">
+            ×
+        </button>
+
+        <h2>🏀 ¿Cómo usar ChatBotNBA?</h2>
+
+        <p>
+            Puedes preguntarme sobre información y estadísticas de la NBA.
+        </p>
+
+        <h3>Preguntas que puede contestar el chat:</h3>
+
+        <ul>
+            <li>Partidos de hoy</li>
+            <li>Últimos partidos de Boston</li>
+            <li>Clasificación NBA</li>
+            <li>Estadísticas de Lebron James</li>
+            <li>Información Lebron James</li>
+            <li>Jugadores de los Lakers</li>
+        </ul>
+
+        <p>
+            Intenta escribir nombres completos o abreviaturas reconocibles
+            para obtener mejores resultados, así como evitar faltas de ortografía.
+        </p>
+
+    </div>
+
+</div>
 
 <div id="chatBox" class="chat-box">
     <div class="mensaje bot">
@@ -126,5 +167,23 @@
         }
 
         chatBox.scrollTop = chatBox.scrollHeight;
+
+        const infoChatBtn = document.getElementById("infoChatBtn");
+        const infoChatModal = document.getElementById("infoChatModal");
+        const cerrarInfoChat = document.getElementById("cerrarInfoChat");
+
+        infoChatBtn.addEventListener("click", () => {
+            infoChatModal.hidden = false;
+        });
+
+        cerrarInfoChat.addEventListener("click", () => {
+            infoChatModal.hidden = true;
+        });
+
+        infoChatModal.addEventListener("click", (event) => {
+            if (event.target === infoChatModal) {
+                infoChatModal.hidden = true;
+            }
+        });
     }
 </script>
