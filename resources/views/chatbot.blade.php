@@ -23,7 +23,7 @@
     <div class="mensaje bot">
         <strong>ChatBotNBA:</strong>
         <p>
-            Hola,soy ChatBotNBA. Puedes preguntarme sobre equipos, jugadores, partidos,
+            Hola soy ChatBotNBA. Puedes preguntarme sobre equipos, jugadores, partidos,
             clasificaciones o estadísticas de la NBA.
         </p>
     </div>

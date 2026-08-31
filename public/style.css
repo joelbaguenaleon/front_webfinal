@@ -148,6 +148,7 @@ button {
 .mensaje.bot {
     margin-right: auto;
     background: #e5e7eb;
+    white-space: pre-line;
 }
 
 .chat-input-area {
