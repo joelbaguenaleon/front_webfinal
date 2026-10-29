@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ChatbotController;
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/playoffs', function () {
 
     $response = Http::get(config('services.fastapi.url') . '/api/stats/teams', [
-        'season' => '2025-26',
+        'season' => '2026-27',
         'season_type' => 'Playoffs'
     ]);
 
@@ -21,7 +22,7 @@ Route::get('/playoffs', function () {
 Route::get('/regular-season', function () {
 
     $response = Http::get(config('services.fastapi.url') . '/api/stats/teams', [
-        'season' => '2025-26',
+        'season' => '2026-27',
         'season_type' => 'Regular Season'
     ]);
 
@@ -34,7 +35,7 @@ Route::get('/players/{team}/{seasonType}', function ($team, $seasonType) {
 
     $response = Http::get(config('services.fastapi.url') . '/api/stats/players', [
         'equipo' => $team,
-        'season' => '2025-26',
+        'season' => '2026-27',
         'season_type' => $seasonType
     ]);
 
@@ -45,7 +46,7 @@ Route::get('/player/{id}/{seasonType}', function ($id, $seasonType) {
 
     $response = Http::get(config('services.fastapi.url') . '/api/stats/player/stats', [
         'player_id' => $id,
-        'season' => '2025-26',
+        'season' => '2026-27',
         'season_type' => $seasonType
     ]);
 

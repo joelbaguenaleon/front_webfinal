@@ -8,12 +8,17 @@
 </head>
 
 <body>
-    <h1>Estadísticas jugadores playoffs 2026</h1>
+    <h1>Estadísticas jugadores playoffs 2027</h1>
 
     <div class="menu">
         <a href="/"><button>Home</button></a>
-        <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2026</button></a>
-        <a href="/playoffs"><button>Estadísticas jugadores playoffs 2026</button></a>
+        <a href="/regular-season"><button>Estadísticas jugadores temporada regular 2027</button></a>
+        <a> <!--añadir ruta cuando lleguen los playoffs: href="/playoffs"*-->
+            <button class="btn-tooltip">Estadísticas jugadores playoffs 2027
+                <span class="tooltip-text">Disponible cuando lleguen los playoffs.</span>
+                <!--comentar tooltip cuando se habilite boton-->
+            </button>
+        </a>
         <a href="/chatbot"><button>ChatBotNBA</button></a>
     </div>
 

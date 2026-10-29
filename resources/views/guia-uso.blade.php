@@ -27,7 +27,7 @@
 
         <h1>Guía de Uso</h1>
 
-        <p>La idea es mostrar de manera rápida los promedios de los jugadores en la NBA durante 2026.
+        <p>La idea es mostrar de manera rápida los promedios de los jugadores en la NBA.
             La web contempla tanto estadísticas normales, promedios y algunas estadísticas avanzadas.
         </p>
 

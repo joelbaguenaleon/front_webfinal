@@ -298,3 +298,313 @@ button {
     align-items: center;
     gap: 10px;
 }
+
+/* tooltip boton playoffs, comentar cuandoeste disponible la pestaña */
+.btn-tooltip {
+    position: relative;
+
+}
+
+.btn-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*fin del tooptip*/
+
+/*estilo clasificacion tabla de incicio*/
+.clas-conf {
+    margin: 16px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #5a2d0f;
+}
+
+.clas-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f7edd8;
+}
+
+.clas-tabla th {
+    text-align: left;
+    padding: 6px;
+    background: #5a2d0f;
+    color: #f7edd8;
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+.clas-tabla td {
+    padding: 6px;
+    border-bottom: 1px solid rgba(107, 58, 26, .2);
+}
+
+/* Zonas: barra de color a la izquierda + fondo suave */
+.clas-tabla tr.playoffs td:first-child {
+    box-shadow: inset 5px 0 0 #2e8b57;
+}
+
+.clas-tabla tr.playin td:first-child {
+    box-shadow: inset 5px 0 0 #d9a21b;
+}
+
+.clas-tabla tr.playoffs {
+    background: rgba(46, 139, 87, .12);
+}
+
+.clas-tabla tr.playin {
+    background: rgba(217, 162, 27, .18);
+}
+
+.pos {
+    font-weight: 700;
+    width: 50px;
+}
+
+.vd {
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.racha.gana {
+    color: #2e8b57;
+    font-weight: 700;
+}
+
+.racha.pierde {
+    color: #b3402a;
+    font-weight: 700;
+}
+
+.clas-leyenda {
+    font-size: .8rem;
+    margin: 0 0 4px;
+}
+
+.punto {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin: 0 4px 0 12px;
+    vertical-align: middle;
+}
+
+.punto:first-child {
+    margin-left: 0;
+}
+
+.punto.playoffs {
+    background: #2e8b57;
+}
+
+.punto.playin {
+    background: #d9a21b;
+}
+
+/*bracket en tooltip*/
+.clas-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clas-cabecera h2 {
+    margin: 0;
+}
+
+.btn-info {
+    border-radius: 0;
+    border: 1px solid #6b3a1a;
+    background: #f7edd8;
+    color: #5a2d0f;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 10px 16px;
+    line-height: 1;
+    transition: background .15s, color .15s;
+}
+
+.btn-info:hover {
+    background: #5a2d0f;
+    color: #f7edd8;
+}
+
+/* Modal */
+.bracket-dialog {
+    width: min(1500px, 97vw);
+    max-height: 92vh;
+    overflow: auto;
+}
+
+.br-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    min-width: 1250px;
+    /* scroll horizontal en pantallas pequeñas */
+    margin-top: 12px;
+}
+
+.br-conf {
+    display: flex;
+    flex-direction: column;
+}
+
+.br-conf-titulo {
+    margin: 0 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #5a2d0f;
+    text-align: center;
+}
+
+.br-cols {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+}
+
+.br-este .br-cols {
+    flex-direction: row-reverse;
+}
+
+/* espejo */
+
+.br-col {
+    flex: 1;
+    min-width: 145px;
+    display: flex;
+    flex-direction: column;
+}
+
+.br-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.br-ronda {
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    opacity: .7;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.br-cruce {
+    background: #f7edd8;
+    border: 1px solid #6b3a1a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.br-eq {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    font-size: .8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.br-eq+.br-eq {
+    border-top: 1px dashed rgba(107, 58, 26, .4);
+}
+
+.br-eq img {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.br-eq span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.br-eq em {
+    font-weight: 400;
+    opacity: .65;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.seed {
+    background: #5a2d0f;
+    color: #f7edd8;
+    border-radius: 4px;
+    min-width: 20px;
+    text-align: center;
+    font-size: .7rem;
+    padding: 2px 4px;
+}
+
+/* Play-In en ámbar */
+.br-col-playin .br-cruce {
+    border-color: #d9a21b;
+}
+
+.br-col-playin .seed {
+    background: #d9a21b;
+    color: #1f1a14;
+}
+
+.br-sub {
+    display: block;
+    font-size: .7rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.br-nota {
+    display: block;
+    font-size: .65rem;
+    opacity: .7;
+    margin-top: 3px;
+}
+
+/* Final NBA en el centro */
+.br-centro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 160px;
+}
+
+.bracket-top {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #e8d3a2;
+    /* mismo fondo del modal para tapar el contenido al hacer scroll */
+    padding-bottom: 6px;
+}
+
+.bracket-top h2 {
+    margin: 0;
+}
+
+.btn-cerrar {
+    margin-left: auto;
+    /* garantiza que quede a la derecha */
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #5a2d0f;
+}
+
+.btn-cerrar:hover {
+    color: #b3402a;
+}
